@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./css/jquery-ui.css">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/jquery.datetimepicker.css">
+</head>
+
+<body>
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <h3>Подкатегория</h3>
+        <div data-group="sub-categories">
+          <h5>Одежда, обувь, аксессуары</h5>
+          <div class="form-check">
+            <label class="form-check-label w-100">
+              <input class="form-check-input" type="radio" name="GoodsType" checked>
+              <p data-value>Женская одежда</p>
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label w-100">
+              <input class="form-check-input" type="radio" name="GoodsType">
+              <p data-value>Мужская одежда</p>
+            </label>
+          </div>
+        </div>
+      </div>
+      <!-- subCategories -->
+      <div class="form-group">
+        <h3>Размер*:</h3>
+        <input type="text" class="form-control" name="Size">
+      </div>
+      <!-- Size -->
+      <div class="form-group">
+        <h3>Вид объявления:</h3>
+        <div class="form-check">
+          <label class="form-check-label w-100">
+            <input class="form-check-input" type="radio" name="AdType" checked>
+            <p data-value>Товар приобретен на продажу</p>
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label w-100">
+            <input class="form-check-input" type="radio" name="AdType">
+            <p data-value>Товар от производителя</p>
+          </label>
+        </div>
+      </div>
+      <!-- AdType -->
+      <div class="form-group">
+        <h3>Заголовок*:</h3>
+        <input type="text" class="form-control" name="Title">
+      </div>
+      <!-- title -->
+      <div class="form-group">
+        <h3>Описание*:</h3>
+        <textarea type="text" class="form-control" name="Description" rows="3"></textarea>
+      </div>
+      <!-- description -->
+      <div class="form-group">
+        <h3>цена*:</h3>
+        <p>Цена в рублях — целое число.</p>
+        <input type="text" class="form-control" name="Price">
+      </div>
+      <!-- price -->
+      <div class="form-group">
+        <h3>Загрузка фото*</h3>
+        <input type="file" id="file-upload" style="display: none;" accept="image/*" multiple>
+        <input type="button" class="btn btn-success" value="скачать файл(ы)"
+          onclick="document.getElementById('file-upload').click();" />
+        <ul class="p-0 pt-2" id="file-list-group">
+        </ul>
+      </div>
+      <!-- fileUploader -->
+      <div class="form-group">
+        <h3>Адресс*</h3>
+        <p>Полный адрес объекта — строка до 256 символов.(через зпятую)</p>
+        <input type="text" class="form-control" placeholder="Россия, Тамбовская область, Моршанск, Лесная улица, 7"
+          name="Address">
+      </div>
+      <!-- Address -->
+      <div class="form-group">
+        <h3>Вариант платного размещения</h3>
+        <div class="form-check">
+          <label class="form-check-label w-100">
+            <input class="form-check-input" type="radio" name="ListingFee" checked>
+            <span data-value>Package</span>
+            <p>размещение объявления осуществляется только при наличии подходящего пакета размещения</p>
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label w-100">
+            <input class="form-check-input" type="radio" name="ListingFee">
+            <span data-value>PackageSingle</span>
+            <p>при наличии подходящего пакета оплата размещения объявления произойдет с него; если нет подходящего
+              пакета, но достаточно денег на кошельке Авито, то произойдет разовое размещение;</p>
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label w-100">
+            <input class="form-check-input" type="radio" name="ListingFee">
+            <span data-value>Single</span>
+            <p>только разовое размещение, произойдет при наличии достаточной суммы на кошельке Авито; если есть
+              подходящий пакет размещения, он будет проигнорирован.</p>
+          </label>
+        </div>
+      </div>
+      <!-- ListingFee -->
+      <div class="form-group">
+        <h3>Имя менеджера, контактного лица компании по данному объявлению </h3>
+        <p>строка не более 40 символов.</p>
+        <input type="text" class="form-control" name="ManagerName">
+      </div>
+      <!-- ManagerName -->
+      <div class="form-group">
+        <h3>Возможность написать сообщение по объявлению через сайт</h3>
+        <div class="row p-2">
+          <div class="form-check col">
+            <label class="form-check-label w-100 text-center p-2">
+              <input class="form-check-input" type="radio" name="AllowEmail" checked>
+              <span data-value>Да</span>
+            </label>
+          </div>
+          <div class="form-check col">
+            <label class="form-check-label w-100 text-center p-2">
+              <input class="form-check-input" type="radio" name="AllowEmail">
+              <span data-value>Нет</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <!-- AllowEmail -->
+      <div class="form-group">
+        <h3>Дата и время загрузки объявления</h3>
+        <input class="form-control" type="text" id="datetimepicker" name="DateBegin"/>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  <script>
+    var $ = require('jquery');
+    var jQuery = require('jquery');
+    require('./scripts/jquery.datetimepicker.full.js');
+    require("./scripts/jquery-ui.min");
+    const fileUploader = require("./scripts/fileUploader.js");
+    fileUploader.run();
+    require("./scripts/node.js")
+    $('#datetimepicker').datetimepicker({ format: "Y-m-dТH:m:sT", }).on("change", function () {
+      let strDate = $(this).val();
+      const indexGTM = strDate.indexOf("GMT")
+      const indexT=strDate.indexOf("Т");
+      strDate=strDate.slice(0, indexGTM) + strDate.slice(indexGTM + 3, -2) + ":" + strDate.slice(-2);
+      strDate=strDate.slice(0, indexT) +"T"+ strDate.slice(indexT + 1);
+      $(this).val(strDate);
+    });
+
+
+  </script>
+</body>
+
+</html>

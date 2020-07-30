@@ -1,0 +1,14 @@
+/* 
+	A couple styles to make the demo page look good
+ */
+body {
+	padding-bottom: 2rem;
+	padding-top: 4rem;
+}
+.row {
+	margin-bottom: 1rem;
+}
+[class*="col-"] {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
